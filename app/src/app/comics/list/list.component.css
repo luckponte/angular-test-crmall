@@ -1,0 +1,17 @@
+h1, h2 {
+    text-align: center;
+}
+h2 {
+    margin: 2rem 0;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 4rem;
+    padding: 4rem;
+    align-items: center;
+    box-shadow: 0 0 1rem 0rem #ccc;
+    border-radius: 1rem;
+}
