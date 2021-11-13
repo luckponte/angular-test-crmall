@@ -9,6 +9,9 @@ import { DetailComponent } from './detail/detail.component';
   declarations: [ListComponent, DetailComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ListComponent
   ]
 })
 export class ComicsModule { }
