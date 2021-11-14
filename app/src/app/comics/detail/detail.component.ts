@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
+  comic: any = {};
 
   constructor() { }
 
   ngOnInit(): void {
+    this.comic = history.state.data;
   }
 
 }

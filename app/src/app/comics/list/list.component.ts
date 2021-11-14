@@ -14,11 +14,15 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     const params = {};
 
+    this.fetchComics(params);
+  }
+
+
+  private fetchComics(params: {}) {
     this.apiService
       .get('comics', params)
       .subscribe((comics: any) => {
         this.list = comics.data.results;
       });
   }
-
 }

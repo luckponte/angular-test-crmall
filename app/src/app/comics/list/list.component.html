@@ -2,9 +2,11 @@
     <h1>Comic List</h1>
     
     <div class="list">
-        <div class="box" *ngFor="let comic of list">
-            <h2>{{ comic.title }}</h2>
-            <img src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}" alt="{{ comic.title }}">
-        </div>
+        <a *ngFor="let comic of list" [routerLink]="['/comic']" routerLinkActive="router-link-active" [state]="{data: comic}">
+            <div class="box">
+                <h2>{{ comic.title }}</h2>
+                <img src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}" alt="{{ comic.title }}">
+            </div>
+        </a>
     </div>
 </div>
