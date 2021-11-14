@@ -1,8 +1,10 @@
 <div>
     <h1>Comic List</h1>
-    
+
     <div class="list">
-        <a *ngFor="let comic of list" [routerLink]="['/comic']" routerLinkActive="router-link-active" [state]="{data: comic}">
+        <a *ngFor="let comic of list" 
+            [routerLink]="['/comic']" 
+            [state]="{data: comic}">
             <div class="box">
                 <h2>{{ comic.title }}</h2>
                 <img src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}" alt="{{ comic.title }}">

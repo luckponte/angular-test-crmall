@@ -4,6 +4,12 @@ h1, h2 {
 h2 {
     margin: 2rem 0;
 }
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
 .box {
     display: flex;
     flex-direction: column;
@@ -15,7 +21,9 @@ h2 {
     box-shadow: 0 0 1rem 0rem #ccc;
     border-radius: 1rem;
     transition: 0s box-shadow;
+    transition-duration: 0.5s;
 }
+
 .box:hover {
     box-shadow: 0 0 1.5rem 0.5rem #ccc;
     transition-duration: 0.5s;
