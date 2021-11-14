@@ -40,11 +40,20 @@ button {
     box-shadow: 0 0 0.25rem 0rem #aaa;
     transition: 0s box-shadow;
     transition-duration: 0.5s;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 button:hover {
     box-shadow: 0 0 0.5rem 0.33rem #ccc;
     transition-duration: 0.5s;
+}
+
+button img {
+    height: 20px;
+    margin-right: 0.5rem;
 }
 
 .box {

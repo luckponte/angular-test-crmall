@@ -3,7 +3,10 @@
     <div class="ribbon" *ngIf="comic.isRare"><span>Raro</span></div>
 
     <div>
-        <button (click)="routeBack()"> Back </button>
+        <button (click)="routeBack()"> 
+            <img src="/assets/img/back-arrow.svg" alt=""> 
+            Voltar 
+        </button>
     </div>
 
     <h1>{{ comic.title }}</h1>

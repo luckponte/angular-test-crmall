@@ -16,4 +16,16 @@
     margin: auto;
     padding: 4rem;
     background-color: #FFFFFF;
+    margin-top: 3rem;
+    min-height: 100vh;
+}
+
+.topnav {
+    background-color: #06070E;
+    color: #FFFFFF;
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+    padding-left: 4rem;
+    box-shadow: 0rem 0.25rem 1rem 0.25rem #252a56;
 }

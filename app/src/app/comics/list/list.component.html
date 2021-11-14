@@ -1,16 +1,22 @@
 <div>
-    <h1>Comic List</h1>
+    <h1>Lista de Quadrinhos</h1>
 
     <div class="list">
-        <a *ngFor="let comic of list" 
-            [routerLink]="['/comic']" 
-            [state]="{data: comic}">
-            <div class="box">
-                <div class="ribbon" *ngIf="comic.isRare"><span>Raro</span></div>
-                
-                <h2>{{ comic.title }}</h2>
-                <img src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}" alt="{{ comic.title }}">
-            </div>
-        </a>
+        <div *ngIf="loading" class="loader-wheel">
+            <img src="/assets/img/gear-loader.svg" alt="Loading">
+        </div>
+
+        <ng-container *ngIf="list.length > 0">
+            <a *ngFor="let comic of list" 
+                [routerLink]="['/comic']" 
+                [state]="{data: comic}">
+                <div class="box">
+                    <div class="ribbon" *ngIf="comic.isRare"><span>Raro</span></div>
+                    
+                    <h2>{{ comic.title }}</h2>
+                    <img src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}" alt="{{ comic.title }}">
+                </div>
+            </a>
+        </ng-container>
     </div>
 </div>

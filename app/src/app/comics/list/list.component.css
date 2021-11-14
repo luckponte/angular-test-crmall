@@ -73,3 +73,8 @@ a {
     border-bottom: 3px solid transparent;
     border-top: 3px solid #609FC9;
 }
+
+.loader-wheel {
+    text-align: center;
+    margin-top: 25%;
+}

@@ -8,6 +8,7 @@ import { ApiService } from './../../api.service'
 })
 export class ListComponent implements OnInit {
   list:any = [];
+  loading:boolean = false;
 
   constructor(private apiService: ApiService) { }
 
@@ -19,6 +20,8 @@ export class ListComponent implements OnInit {
 
 
   private fetchComics(params: {}) {
+    this.loading = true;
+
     this.apiService
       .get('comics', params)
       .subscribe((comics: any) => {
@@ -29,7 +32,9 @@ export class ListComponent implements OnInit {
           if (key <= 0.1) {
             item.isRare = true;
           }
-        })
+        });
+
+        this.loading = false;
       });
   }
 }
