@@ -15,13 +15,10 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  /**
-   * get
-   */
   public get(route:string, params:any): Observable<Object> {
     const url = `${this.baseUrl}/${route}`;
     params.limit = 20;
-    params.apiKey = environment.apiKey;
+    params.apikey = environment.apiKey;
 
     return this.http.get(url, {
       'params': params,
