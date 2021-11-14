@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-detail',
@@ -8,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class DetailComponent implements OnInit {
   comic: any = {};
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
     this.comic = history.state.data;
   }
 
+  public routeBack(): void {
+    this.location.back()
+  }
 }

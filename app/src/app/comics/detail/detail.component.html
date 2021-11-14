@@ -1,2 +1,33 @@
-<h2>{{ comic.title }}</h2>
-<p>detail works!</p>
+
+<div class="box">
+    <div>
+        <button (click)="routeBack()"> Back </button>
+    </div>
+    
+    <h1>{{ comic.title }}</h1>
+
+    <div class="content">
+        <div class="panel">
+            <img src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}" alt="{{ comic.title }}">
+        </div>
+    
+        <div class="panel">
+            <ul>
+                <li><span class="property">Preço:</span> {{ comic.prices[0].price | currency:'BRL' }}</li>
+                <li><span class="property">Série:</span> {{ comic.series.name }}</li>
+                <li><span class="property">Criadores:</span>
+                    <div class="label-list">
+                        <label class="label" *ngFor="let creator of comic.creators.items"> {{ creator.name }} </label>
+                    </div> 
+                </li>
+                <li><span class="property">Personagens:</span>
+                    <div class="label-list">
+                        <label class="label" *ngFor="let character of comic.characters.items"> {{ character.name }} </label>
+                    </div>
+                </li>
+                <li><span class="property">ISBN:</span> {{ comic.isbn }}</li>
+                <li><span class="property">Sinopse:</span> {{ comic.description }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
