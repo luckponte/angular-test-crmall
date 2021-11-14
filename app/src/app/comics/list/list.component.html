@@ -1,8 +1,10 @@
-<h1>Comic List</h1>
-
-<div class="">
-    <div class="box" *ngFor="let comic of list">
-        <img src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}" alt="{{ comic.title }}">
-        <h2>{{ comic.title }}</h2>
+<div>
+    <h1>Comic List</h1>
+    
+    <div class="list">
+        <div class="box" *ngFor="let comic of list">
+            <h2>{{ comic.title }}</h2>
+            <img src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}" alt="{{ comic.title }}">
+        </div>
     </div>
 </div>
