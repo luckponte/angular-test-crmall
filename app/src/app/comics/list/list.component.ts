@@ -23,6 +23,13 @@ export class ListComponent implements OnInit {
       .get('comics', params)
       .subscribe((comics: any) => {
         this.list = comics.data.results;
+
+        this.list.forEach(item => {
+          let key = Math.random();
+          if (key <= 0.1) {
+            item.isRare = true;
+          }
+        })
       });
   }
 }

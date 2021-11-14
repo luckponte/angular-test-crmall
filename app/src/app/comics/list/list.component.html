@@ -6,6 +6,8 @@
             [routerLink]="['/comic']" 
             [state]="{data: comic}">
             <div class="box">
+                <div class="ribbon" *ngIf="comic.isRare"><span>Raro</span></div>
+                
                 <h2>{{ comic.title }}</h2>
                 <img src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}" alt="{{ comic.title }}">
             </div>
