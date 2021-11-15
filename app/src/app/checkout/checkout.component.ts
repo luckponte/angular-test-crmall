@@ -32,11 +32,7 @@ export class CheckoutComponent implements OnInit {
 
   public total(): number {
     return this.items.reduce((accumulator, item) => {
-      if(typeof accumulator == 'object') {
-        accumulator = (accumulator.item.price * accumulator.quantity);
-      }
-      
-      return accumulator + (item.item.price * item.quantity);
-    })
+      return accumulator + (item.price * item.quantity);
+    }, 0);
   }
 }
