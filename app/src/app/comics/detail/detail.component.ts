@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { ComicDataService } from '../comic-data.service';
 
 @Component({
   selector: 'app-detail',
@@ -10,10 +11,11 @@ export class DetailComponent implements OnInit {
   comic: any = {};
   item:any = {};
 
-  constructor(private location: Location) { }
+  constructor(private location: Location, private stateService: ComicDataService) { }
 
   ngOnInit(): void {
-    this.comic = history.state.data;
+    this.comic = this.stateService.detailComic;
+    
     this.item = {
       id: this.comic.id,
       price: this.comic.prices[0].price,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComicDataService } from '../comic-data.service';
 import { ApiService } from './../../api.service'
 
 @Component({
@@ -10,7 +11,7 @@ export class ListComponent implements OnInit {
   list:any = [];
   loading:boolean = false;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private stateService: ComicDataService) { }
 
   ngOnInit(): void {
     const params = {};
@@ -36,5 +37,9 @@ export class ListComponent implements OnInit {
 
         this.loading = false;
       });
+  }
+
+  public setData(item: any) {
+    this.stateService.setDetail(item);
   }
 }
