@@ -6,7 +6,7 @@ import { CartOverlayModule } from "./../cart-overlay/cart-overlay.module";
 import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 
-
+import { ComicDataService } from "./comic-data.service";
 
 @NgModule({
   declarations: [ListComponent, DetailComponent],
@@ -18,6 +18,9 @@ import { DetailComponent } from './detail/detail.component';
   exports: [
     ListComponent,
     DetailComponent,
+  ],
+  providers: [
+    ComicDataService,
   ]
 })
 export class ComicsModule { }
