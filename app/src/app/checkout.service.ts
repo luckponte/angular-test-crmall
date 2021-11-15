@@ -6,38 +6,33 @@ import { Injectable } from '@angular/core';
 export class CheckoutService {
   items: Array<any> = [
     {
-      item: {
-        title: 'Foo',
-        price: 5.9
-      },
+      id: 1,
+      title: 'Foo',
+      price: 5.9,
       quantity: 1,
     },
     {
-      item: {
-        title: 'Bar',
-        price: 2.99,
-      },
+      id: 2,
+      title: 'Bar',
+      price: 2.99,
       quantity: 2,
     },
     {
-      item: {
-        title: 'Baz',
-        price: 9.99,
-      },
+      id: 3,
+      title: 'Baz',
+      price: 9.99,
       quantity: 1,
     },
     {
-      item: {
-        title: 'Baq',
-        price: 4.99,
-      },
+      id: 4,
+      title: 'Baq',
+      price: 4.99,
       quantity: 3,
     },
     {
-      item: {
-        title: 'Biz',
-        price: 8.99,
-      },
+      id: 5,
+      title: 'Biz',
+      price: 8.99,
       quantity: 2,
     },
   ];
@@ -48,32 +43,40 @@ export class CheckoutService {
     let isNew = true;
 
     this.items.forEach(el => {
-      if (el.item.id == item.id) {
+      if (el.id == item.id) {
         el.quantity--;
         isNew = false;
       }
     });
 
     if (isNew) {
-      this.items.push({
-        item: item,
-        quantity: 1,
-      });
+      item.quantity = 1;
+      this.items.push(item);
     }
   }
 
   public removeItem(item: any): void {
-    this.items = this.items.filter((val) => val.item.id != item.id);
+    this.items = this.items.filter((val) => val.id != item.id);
   }
 
-  public increaseItem(index: number): void {
+  public increaseItem(index: string): void {
     this.items[index].quantity++;
   }
 
-  public decreaseItem(index: number): void {
+  public decreaseItem(index: string): void {
     this.items[index].quantity--;
     if (this.items[index].quantity === 0) {
       this.removeItem(this.items[index]);
     }
+  }
+
+  public findItem(item): string {
+    for (const index in this.items) {
+      if (item.id === this.items[index].id) {
+        return index;
+      }
+    }
+
+    return null;
   }
 }

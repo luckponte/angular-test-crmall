@@ -1,8 +1,8 @@
 <div>
     <ul>
         <li *ngFor="let item of items; let i = index;">
-            {{ item.item.title }} <button (click)="decrease(i)">-</button> {{ item.quantity }}
-            <button (click)="increase(i)">+</button> | Total: {{ item.item.price * item.quantity | currency:'BRL' }}
+            {{ item.title }} <button (click)="decrease(i)">-</button> {{ item.quantity }}
+            <button (click)="increase(i)">+</button> | Total: {{ item.price * item.quantity | currency:'BRL' }}
         </li>
     </ul>
 

@@ -1,1 +1,10 @@
-<p>cart-overlay works!</p>
+<div>
+    <button *ngIf="listIndex === null">
+        <img src="/assets/img/shopping-cart.svg" alt="carrinho">
+        Adicionar ao Carrinho
+    </button>
+
+    <div *ngIf="listIndex !== null">
+        <button (click)="decrease()">-</button> {{ item.quantity }} <button (click)="increase()">+</button> | Total: {{ item.price * item.quantity | currency:'BRL' }}
+    </div>
+</div>
