@@ -17,7 +17,7 @@ export class ApiService {
 
   public get(route:string, params:any): Observable<Object> {
     const url = `${this.baseUrl}/${route}`;
-    params.limit = 20;
+    params.limit = 100;
     params.apikey = environment.apiKey;
 
     return this.http.get(url, {
