@@ -48,4 +48,8 @@ export class CheckoutService {
 
     return null;
   }
+
+  public clear(): void {
+    this.items = [];
+  }
 }
