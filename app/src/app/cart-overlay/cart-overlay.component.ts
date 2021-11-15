@@ -13,13 +13,11 @@ export class CartOverlayComponent implements OnInit {
   constructor(private checkoutService: CheckoutService) { }
 
   ngOnInit() {
-    console.log('item', this.item);    
     this.listIndex = this.checkoutService.findItem(this.item);
 
     if (this.listIndex !== null) {
       this.item = this.checkoutService.getItem(this.listIndex);
     }
-    console.log('index', this.listIndex);
   }
 
   public increase() {
