@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ComicDataService {
-  public comics: Array<any> = [{}];
+  public comics: Array<any> = [];
   public detailComic: any = {};
 
   constructor() { }

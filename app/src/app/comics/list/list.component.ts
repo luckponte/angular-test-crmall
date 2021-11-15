@@ -16,9 +16,12 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     const params = {};
 
-    this.fetchComics(params);
-  }
+    this.list = this.stateService.comics;
 
+    if (! this.list.length) {
+      this.fetchComics(params);
+    }
+  }
 
   private fetchComics(params: {}) {
     this.loading = true;
@@ -35,6 +38,8 @@ export class ListComponent implements OnInit {
           }
         });
 
+        this.stateService.setList(this.list);
+        
         this.loading = false;
       });
   }
