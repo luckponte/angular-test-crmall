@@ -1,5 +1,5 @@
 <div class="checkout">
-    <div>
+    <div *ngIf="! bought">
         <button class="return" (click)="routeBack()"> 
             <img src="/assets/img/back-arrow.svg" alt=""> 
             Voltar 
@@ -8,37 +8,47 @@
         <h1>Meu Carrinho</h1>
     </div>
     
-    <ul>
-        <li *ngFor="let item of items; let i = index;">
-            <div class="detail-section title">
-                <img src="{{ item.thumbnail }}" alt="{{ item.title }}">
-                <h4>{{ item.title }}</h4> 
-            </div>
+    <div *ngIf="! bought">
+        <ul>
+            <li *ngFor="let item of items; let i = index;">
+                <div class="detail-section title">
+                    <img src="{{ item.thumbnail }}" alt="{{ item.title }}">
+                    <h4>{{ item.title }}</h4> 
+                </div>
+    
+                <div class="detail-section">
+                    <button (click)="decrease(i)">-</button> 
+                    <span class="visor">{{ item.quantity }}</span>
+                    <button (click)="increase(i)">+</button> 
+                </div>
+    
+                <div class="detail-section">
+                    <span class="visor">Total: {{ item.price * item.quantity | currency:'BRL' }}</span>
+                    <button class="delete" (click)="remove(item)">Remover Item</button>
+                </div>
+            </li>
+        </ul>
+    
+        <div class="buttons">
+                <a [routerLink]="['/']">
+                    <button>
+                        Continuar Comprando
+                    </button> 
+                </a>
+    
+                <a (click)="buy()">
+                    <button class="buy-link">
+                        Comprar - {{ total() | currency:'BRL' }}
+                    </button> 
+                </a>
+        </div>
+    </div>
 
-            <div class="detail-section">
-                <button (click)="decrease(i)">-</button> 
-                <span class="visor">{{ item.quantity }}</span>
-                <button (click)="increase(i)">+</button> 
-            </div>
+    <div *ngIf="bought" class="bought">
+        <h2>Agradecemos a Preferência :)</h2>
 
-            <div class="detail-section">
-                <span class="visor">Total: {{ item.price * item.quantity | currency:'BRL' }}</span>
-                <button class="delete" (click)="remove(item)">Remover Item</button>
-            </div>
-        </li>
-    </ul>
+        <img src="/assets/img/gear-loader.svg" alt="Loading">
 
-    <div class="buttons">
-            <a [routerLink]="['/']">
-                <button>
-                    Continuar Comprando
-                </button> 
-            </a>
-
-            <a (click)="clear()" [routerLink]="['/']">
-                <button class="buy-link">
-                    Comprar - {{ total() | currency:'BRL' }}
-                </button> 
-            </a>
+        <p>Voltando à página principal...</p>
     </div>
 </div>

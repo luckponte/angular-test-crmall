@@ -121,3 +121,12 @@ li {
     align-items: center;
     margin-top: 3rem;
 }
+.bought {
+    text-align: center;
+}
+
+.bought p {
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+}

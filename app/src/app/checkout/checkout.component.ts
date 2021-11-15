@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CheckoutService } from "./../checkout.service";
 
 @Component({
@@ -8,9 +9,10 @@ import { CheckoutService } from "./../checkout.service";
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  items:Array<any> = [];
+  items: Array<any> = [];
+  bought: boolean = false;
 
-  constructor(private checkoutService: CheckoutService, private location:Location) { }
+  constructor(private checkoutService: CheckoutService, private location: Location, private router: Router) { }
 
   ngOnInit(): void {
     this.items = this.checkoutService.items;
@@ -37,8 +39,15 @@ export class CheckoutComponent implements OnInit {
     }, 0);
   }
 
-  public clear(): void {
+  public buy(): void {
     this.checkoutService.clear();
+    this.bought = true;
+
+    // Simulate latency to purchase API
+    setTimeout(() => {
+      this.bought = false;
+      this.router.navigate(['/']);
+    }, 1000);
   }
 
   public routeBack(): void {
