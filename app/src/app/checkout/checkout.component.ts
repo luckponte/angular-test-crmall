@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CheckoutService } from "./../checkout.service";
 
@@ -9,7 +10,7 @@ import { CheckoutService } from "./../checkout.service";
 export class CheckoutComponent implements OnInit {
   items:Array<any> = [];
 
-  constructor(private checkoutService: CheckoutService) { }
+  constructor(private checkoutService: CheckoutService, private location:Location) { }
 
   ngOnInit(): void {
     this.items = this.checkoutService.items;
@@ -34,5 +35,13 @@ export class CheckoutComponent implements OnInit {
     return this.items.reduce((accumulator, item) => {
       return accumulator + (item.price * item.quantity);
     }, 0);
+  }
+
+  public clear(): void {
+    this.checkoutService.clear();
+  }
+
+  public routeBack(): void {
+    this.location.back();
   }
 }

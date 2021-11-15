@@ -1,10 +1,38 @@
-<div>
+<div class="checkout">
+    <div>
+        <button class="return" (click)="routeBack()"> 
+            <img src="/assets/img/back-arrow.svg" alt=""> 
+            Voltar 
+        </button>
+
+        <h1>Meu Carrinho</h1>
+    </div>
+    
     <ul>
         <li *ngFor="let item of items; let i = index;">
-            {{ item.title }} <button (click)="decrease(i)">-</button> {{ item.quantity }}
-            <button (click)="increase(i)">+</button> | Total: {{ item.price * item.quantity | currency:'BRL' }}
+            <div class="detail-section title">
+                <img src="{{ item.thumbnail }}" alt="{{ item.title }}">
+                <h4>{{ item.title }}</h4> 
+            </div>
+
+            <div class="detail-section">
+                <button (click)="decrease(i)">-</button> 
+                <span class="visor">{{ item.quantity }}</span>
+                <button (click)="increase(i)">+</button> 
+            </div>
+
+            <div class="detail-section">
+                <span class="visor">Total: {{ item.price * item.quantity | currency:'BRL' }}</span>
+                <button class="delete" (click)="remove(item)">Remover Item</button>
+            </div>
         </li>
     </ul>
 
-    Total - {{ total() | currency:'BRL' }}
+    <div>
+        <a (click)="clear()" [routerLink]="['/']">
+            <button class="buy-link">
+                Comprar - {{ total() | currency:'BRL' }}
+            </button> 
+        </a>
+    </div>
 </div>
