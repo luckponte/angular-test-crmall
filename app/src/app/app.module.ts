@@ -8,13 +8,11 @@ import { AppComponent } from './app.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 import { CheckoutService } from './checkout.service';
-import { CartOverlayComponent } from './cart-overlay/cart-overlay.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CheckoutComponent,
-    CartOverlayComponent
   ],
   imports: [
     ComicsModule,
