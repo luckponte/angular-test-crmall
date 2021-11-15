@@ -7,25 +7,26 @@ import { CheckoutService } from '../checkout.service';
   styleUrls: ['./cart-overlay.component.css']
 })
 export class CartOverlayComponent {
-  @Input() item = {};
-  items = this.checkoutService.items;
+  @Input() item: any = {};
   listIndex = this.checkoutService.findItem(this.item);
   
   constructor(private checkoutService: CheckoutService) { }
 
   public increase() {
-    this.checkoutService.increaseItem(this.listIndex);
-    this.items = this.checkoutService.items;
+    if (this.item.quantity === 0 ) {
+      this.checkoutService.addItem(this.item);
+    } else {
+      this.checkoutService.increaseItem(this.listIndex);
+    }
   }
 
   public decrease() {
     this.checkoutService.decreaseItem(this.listIndex);
-    this.items = this.checkoutService.items;
   }
 
   public add() {
     this.checkoutService.addItem(this.item);
-    this.items = this.checkoutService.items;
+    this.listIndex = this.checkoutService.findItem(this.item);
   }
 
 }

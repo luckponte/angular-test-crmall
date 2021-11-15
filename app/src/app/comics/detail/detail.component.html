@@ -33,6 +33,8 @@
                 <li><span class="property">ISBN:</span> {{ comic.isbn }}</li>
                 <li><span class="property">Sinopse:</span> {{ comic.description }}</li>
             </ul>
+
+            <app-cart-overlay [item]="item"></app-cart-overlay>
         </div>
     </div>
 </div>

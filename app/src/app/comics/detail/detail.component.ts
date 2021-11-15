@@ -8,11 +8,18 @@ import { Location } from '@angular/common';
 })
 export class DetailComponent implements OnInit {
   comic: any = {};
+  item:any = {};
 
   constructor(private location: Location) { }
 
   ngOnInit(): void {
     this.comic = history.state.data;
+    this.item = {
+      id: this.comic.id,
+      price: this.comic.prices[0].price,
+      title: this.comic.title,
+      thumbnail: `${this.comic.thumbnail.path}.${this.comic.thumbnail.extension}`,
+    }
   }
 
   public routeBack(): void {

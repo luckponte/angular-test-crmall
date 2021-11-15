@@ -1,10 +1,18 @@
-<div>
-    <button *ngIf="listIndex === null">
+<div class="cart">
+    <button *ngIf="listIndex === null" (click)="add()">
         <img src="/assets/img/shopping-cart.svg" alt="carrinho">
         Adicionar ao Carrinho
     </button>
 
-    <div *ngIf="listIndex !== null">
-        <button (click)="decrease()">-</button> {{ item.quantity }} <button (click)="increase()">+</button> | Total: {{ item.price * item.quantity | currency:'BRL' }}
+    <div class="checkout-operation" *ngIf="listIndex !== null">
+        <div class="quantity">
+            <button (click)="decrease()">-</button> 
+            <span class="visor">{{ item.quantity }}</span> 
+            <button (click)="increase()">+</button> <span class="visor">{{ item.price * item.quantity | currency:'BRL' }}</span>
+        </div>
+        
+        <a [routerLink]="['/checkout']" routerLinkActive="router-link-active">
+            <button class="checkout-link" >Ir para Checkout</button>
+        </a>
     </div>
 </div>
