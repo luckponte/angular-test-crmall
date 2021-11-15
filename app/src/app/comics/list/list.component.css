@@ -78,3 +78,20 @@ a {
     text-align: center;
     margin-top: 25%;
 }
+
+.back-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.back-top button {
+    background-color: #FFF;
+    border: solid 1px #333;
+    color: #333;
+    font-size: large;
+    border-radius: 1.25rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
