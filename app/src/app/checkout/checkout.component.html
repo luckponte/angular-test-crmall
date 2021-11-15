@@ -28,11 +28,17 @@
         </li>
     </ul>
 
-    <div>
-        <a (click)="clear()" [routerLink]="['/']">
-            <button class="buy-link">
-                Comprar - {{ total() | currency:'BRL' }}
-            </button> 
-        </a>
+    <div class="buttons">
+            <a [routerLink]="['/']">
+                <button>
+                    Continuar Comprando
+                </button> 
+            </a>
+
+            <a (click)="clear()" [routerLink]="['/']">
+                <button class="buy-link">
+                    Comprar - {{ total() | currency:'BRL' }}
+                </button> 
+            </a>
     </div>
 </div>
