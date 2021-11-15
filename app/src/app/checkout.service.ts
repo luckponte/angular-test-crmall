@@ -4,38 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CheckoutService {
-  items: Array<any> = [
-    {
-      id: 1,
-      title: 'Foo',
-      price: 5.9,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      title: 'Bar',
-      price: 2.99,
-      quantity: 2,
-    },
-    {
-      id: 3,
-      title: 'Baz',
-      price: 9.99,
-      quantity: 1,
-    },
-    {
-      id: 4,
-      title: 'Baq',
-      price: 4.99,
-      quantity: 3,
-    },
-    {
-      id: 5,
-      title: 'Biz',
-      price: 8.99,
-      quantity: 2,
-    },
-  ];
+  items: Array<any> = [];
 
   constructor() { }
 
