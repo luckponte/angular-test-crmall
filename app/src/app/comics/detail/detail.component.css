@@ -74,6 +74,10 @@ button img {
     max-width: 50%;
 }
 
+.panel img {
+    max-width: 80%;
+}
+
 .label-list {
     display: flex;
     flex-wrap: wrap;
