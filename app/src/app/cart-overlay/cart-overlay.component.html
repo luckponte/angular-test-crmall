@@ -4,7 +4,7 @@
         Adicionar ao Carrinho
     </button>
 
-    <div class="checkout-operation" *ngIf="listIndex !== null">
+    <div class="checkout-operation" *ngIf="listIndex !== null && ! isEmptyObject(item)">
         <div class="quantity">
             <button (click)="decrease()">-</button> 
             <span class="visor">{{ item.quantity }}</span> 

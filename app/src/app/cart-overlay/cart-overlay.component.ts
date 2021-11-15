@@ -6,11 +6,21 @@ import { CheckoutService } from '../checkout.service';
   templateUrl: './cart-overlay.component.html',
   styleUrls: ['./cart-overlay.component.css']
 })
-export class CartOverlayComponent {
+export class CartOverlayComponent implements OnInit {
   @Input() item: any = {};
-  listIndex = this.checkoutService.findItem(this.item);
+  listIndex = null;
   
   constructor(private checkoutService: CheckoutService) { }
+
+  ngOnInit() {
+    console.log('item', this.item);    
+    this.listIndex = this.checkoutService.findItem(this.item);
+
+    if (this.listIndex !== null) {
+      this.item = this.checkoutService.getItem(this.listIndex);
+    }
+    console.log('index', this.listIndex);
+  }
 
   public increase() {
     if (this.item.quantity === 0 ) {
@@ -29,4 +39,7 @@ export class CartOverlayComponent {
     this.listIndex = this.checkoutService.findItem(this.item);
   }
 
+  public isEmptyObject(obj): boolean {
+    return (obj && (Object.keys(obj).length === 0));
+  }
 }

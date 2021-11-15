@@ -39,6 +39,10 @@ export class CheckoutService {
     }
   }
 
+  public getItem(index: string): any {
+    return this.items[index];
+  }
+
   public findItem(item): string {
     for (const index in this.items) {
       if (item.id === this.items[index].id) {
